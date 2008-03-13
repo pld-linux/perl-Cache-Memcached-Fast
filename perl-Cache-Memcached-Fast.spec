@@ -6,39 +6,42 @@
 %define	pdir	Cache
 %define	pnam	Memcached-Fast
 Summary:	Cache::Memcached::Fast - Perl client for memcached, in C language
-#Summary(pl):	
+Summary(pl.UTF-8):	Cache::Memcached::Fast - perlowy klient memcached napisany w C
 Name:		perl-Cache-Memcached-Fast
 Version:	0.06
 Release:	0.1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Cache/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	0a2b27f9910bf720f085fc5a2952f75c
+URL:		http://search.cpan.org/dist/Cache-Memcached-Fast/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{with tests}
-%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Cache::Memcahced::Fast is a Perl client for memcached, a memory
-cache daemon (http://www.danga.com/memcached/).  Module core is
+Cache::Memcached::Fast is a Perl client for memcached, a memory
+cache daemon (http://www.danga.com/memcached/). Module core is
 implemented in C and tries hard to minimize number of system calls and
-to avoid any key/value copying for speed.  As a result, it has very
+to avoid any key/value copying for speed. As a result, it has very
 low CPU consumption.
 
-API is largely compatible with Cache::Memcached,
-original pure Perl client, most users of the original module may start
-using this module by installing it and adding "::Fast" to the old
-name in their scripts (see /"Compatibility with Cache::Memcached"
-below for full details).
+API is largely compatible with Cache::Memcached, original pure Perl
+client, most users of the original module may start using this module
+by installing it and adding "::Fast" to the old name in their scripts.
 
+%description -l pl.UTF-8
+Cache::Memcached::Fast to perlowy klient memcached - demona pamięci
+podręcznej (http://www.danga.com/memcached/). Główna część modułu jest
+zaimplementowana w C i usiłuje zminimalizować liczbę wywołań
+systemowych i zapobiegać kopiowaniu kluczy/wartości. W efekcie ma
+bardzo małe zużycie procesora.
 
-
-
-# %description -l pl
-# TODO
+API jest w dużej części kompatybilne z Cache::Memcached - oryginalnym
+kliencie w czystym Perlu; większość użytkowników oryginalnego modułu
+może zacząć używać tego modułu poprzez zainstalowanie go i dodanie
+"::Fast" do starej nazwy w skryptach.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
