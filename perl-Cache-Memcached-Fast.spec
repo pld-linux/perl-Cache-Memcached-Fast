@@ -69,6 +69,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %{perl_vendorarch}/Cache/Memcached/*.pm
 %dir %{perl_vendorarch}/auto/Cache/Memcached/Fast
-%{perl_vendorarch}/auto/Cache/Memcached/Fast/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Cache/Memcached/Fast/*.so
 %{_mandir}/man3/*
