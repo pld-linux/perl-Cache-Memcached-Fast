@@ -7,16 +7,19 @@
 Summary:	Cache::Memcached::Fast - Perl client for memcached, in C language
 Summary(pl.UTF-8):	Cache::Memcached::Fast - perlowy klient memcached napisany w C
 Name:		perl-Cache-Memcached-Fast
-Version:	0.19
+Version:	0.28
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Cache/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	b1d7b4e7efc692804df559f494ac0fe7
+# Source0-md5:	151bb7f9d20c621c61686383b0c3dc7f
 URL:		http://search.cpan.org/dist/Cache-Memcached-Fast/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with tests}
+BuildRequires:	perl-Test2-Suite >= 0.000072
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -65,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes README.md
 %{perl_vendorarch}/Cache/Memcached/*.pm
 %dir %{perl_vendorarch}/auto/Cache/Memcached/Fast
 %attr(755,root,root) %{perl_vendorarch}/auto/Cache/Memcached/Fast/*.so
