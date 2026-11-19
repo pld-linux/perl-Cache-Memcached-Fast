@@ -1,0 +1,13 @@
+# generated headers are not prerequisites of the objects; make -j fails with "compute_crc32.h: No such file"
+--- Cache-Memcached-Fast-0.28/src/Makefile.PL.orig
++++ Cache-Memcached-Fast-0.28/src/Makefile.PL
+@@ -58,6 +58,9 @@
+ 	$(AR) cr libclient$(LIB_EXT) $(OBJECT)
+ 	$(RANLIB) libclient$(LIB_EXT)
+ 
++# objects include the generated headers
++$(OBJECT): parse_keyword.h compute_crc32.h
++
+ parse_keyword.c parse_keyword.h :: genparser.pl reply.kw
+ 	$(PERL) genparser.pl reply.kw parse_keyword.c parse_keyword.h
+ 
